@@ -1,4 +1,4 @@
-def run():
+
 ########################################################################################################################################
 #                                        Using This Script
 #        
@@ -16,11 +16,13 @@ def run():
 #                                   All Calculations are bassed on a 2 week period
 #
 ########################################################################################################################################
-    fixed_costs = {
-        'housing': 280,
-        'utilites':100,
-        'internet':20
-    }
+fixed_costs = {
+    'housing': 365,
+    'utilites':140,
+    'internet':20,
+    'spotify':6,
+    'phone':8
+}
 #######################################################################################################################################
 #                                           Flexable expencies
 #                       This section is for calculating the expences that are not a fixed amount 
@@ -38,14 +40,15 @@ def run():
 #
 ####################################################################################################################################
 
-    flex_out = {
-        'groceries':0.25,
-        'stocks':0.15,
-        'crypto':0.1,
-        'savings':0.3,
-        'personal':0.2
-
-    }
+flex_out = {
+    'groceries':0.25,
+    'stocks':0.05,
+    'crypto':0.05,
+    'savings':0.2,
+    'personal':0.2,
+    'cam':0.15,
+    'other_business':0.1
+}
 
 ###################################################################################################################################
 #                               Threshhold for good budget
@@ -54,15 +57,15 @@ def run():
 #                   By changing the values shown.
 #
 ##################################################################################################################################
-    groceries_min = 50
-    groceries_max = 200
+groceries_min = 40
+groceries_max = 65
 #####################################################################################################################################
 #
 #                                      Do not edit below this line
 #
 #####################################################################################################################################
 
-
+def run():
     fixed_out = 0
     print('What did you make this period in USD?')
     income = input()
@@ -105,6 +108,7 @@ def run():
                 print('You will need to set aside USD: $'+str(round(fixed_out,2)),'From this periods earnings to cover your fixed costs')
                 for i in invest_amounts:
                     print('Your payment for '+i[0]+' this month in USD is: $'+str(round(i[1],2)))
+    print('the minimum you need to make per period in USD is: $'+str(round(fixed_out+groceries_min,2)))
 run()
     
 
