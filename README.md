@@ -6,6 +6,8 @@ You will need a text editor such as VSCode, atom or sublime text to edit the scr
 
 Donation addresses if this helps you and you want to buy me a coffee to help fuel the late night code sessions: 
 
+To run the program, once you have python installed you should be able to just double click it and a window will open asking how much you made this period, enter the amount (numbers only, decimals are fine) and hit enter and it will return your budegt for this period bassed on last periods earnings 
+
 pay.kingmarti.com
 
 BTC: 3BgSt869P4aU1ZC87jbzfLZWM7VTNiCFeB
