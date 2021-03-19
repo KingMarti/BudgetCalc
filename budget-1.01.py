@@ -1,8 +1,4 @@
-from forex_python.converter import CurrencyRates
-import math
-import time
-income = 399.99
-while income < 19900:
+def run():
 ########################################################################################################################################
 #                                        Using This Script
 #        
@@ -68,19 +64,17 @@ while income < 19900:
 
 
     fixed_out = 0
-    print('testing income level:',round(income,2))
-    time.sleep(1)
-    #print('What did you make this period in USD?')
-    #income = input()
-    #income = float(income)
+    print('What did you make this period in USD?')
+    income = input()
+    income = float(income)
     flex_total = 0
     invest_amounts = []
     for fc in fixed_costs:
         fixed_out= fixed_out + fixed_costs[fc]/2
         remain = income - fixed_out
-    print('remaining is:', remain)
-    if income <= fixed_out:
-        print('fixed out is:',fixed_out)
+    print('remaining is amount after deducting fixed costs is USD:$'+str(round(remain,2)))
+    if income < fixed_out:
+        print('fixed monthly outgoings are : $'+str(round(fixed_out,2)))
         print('You didnt make enough to cover your base costs')
     else:
         if remain < groceries_min:
@@ -92,7 +86,7 @@ while income < 19900:
                     if invest_value >= groceries_max:
                         invest_value = groceries_max
                         remain = remain-groceries_max
-                        print('remaining is:', remain)
+                        print('remaining budget for investment after groceries is USD: $'+str(round(remain,2)))
                         print('//////////////////////////Output //////////////////////////////////'+'\n')
                         print('Groceries budget is: $',str(round(groceries_max,2)))
                     elif invest_value < groceries_min:
@@ -100,7 +94,7 @@ while income < 19900:
                         remain = remain - groceries_min
                         print('//////////////////////////Output //////////////////////////////////'+'\n')
                         print('Groceries budget is: $',str(round(groceries_min,2)))
-                        print('remaining is:', remain)
+                        print('remaining budget after deducting minimum grocerie budget is USD: $'+str(round(remain,2)))
                         if remain < 1:
                             print('Not enough income to invest this period')
                             break
@@ -111,8 +105,6 @@ while income < 19900:
                 print('You will need to set aside USD: $'+str(round(fixed_out,2)),'From this periods earnings to cover your fixed costs')
                 for i in invest_amounts:
                     print('Your payment for '+i[0]+' this month in USD is: $'+str(round(i[1],2)))
-    income +=0.01
-    print('///////////////////////////////////////////////////////////////////////////////////////////////////////////\n')
-
+run()
     
 
