@@ -1,8 +1,8 @@
 from forex_python.converter import CurrencyRates
 import math
 import time
-income = 249.99
-while income < 300:
+income = 399.99
+while income < 19900:
 ########################################################################################################################################
 #                                        Using This Script
 #        
@@ -92,20 +92,25 @@ while income < 300:
                     if invest_value >= groceries_max:
                         invest_value = groceries_max
                         remain = remain-groceries_max
+                        print('remaining is:', remain)
+                        print('//////////////////////////Output //////////////////////////////////'+'\n')
+                        print('Groceries budget is: $',str(round(groceries_max,2)))
                     elif invest_value < groceries_min:
                         invest_value = groceries_min
                         remain = remain - groceries_min
-                        if remain < 0.01:
-                            print('///////////////////////////// Output ///////////////////////////////////////////////'+'\n')
+                        print('//////////////////////////Output //////////////////////////////////'+'\n')
+                        print('Groceries budget is: $',str(round(groceries_min,2)))
+                        print('remaining is:', remain)
+                        if remain < 1:
                             print('Not enough income to invest this period')
                             break
                 invest = keys,invest_value
                 invest_amounts.append(invest)
-            if remain >1:
-                print('//////////////////////////Output //////////////////////////////////'+'\n')
-            print('You will need to set aside USD: $'+str(round(fixed_out,2)),'From this periods earnings to cover your fixed costs')
-            for i in invest_amounts:
-                print('Your payment for '+i[0]+' this month in USD is: $'+str(round(i[1],2)))
+            if remain >=1:
+                invest_value= remain*inv
+                print('You will need to set aside USD: $'+str(round(fixed_out,2)),'From this periods earnings to cover your fixed costs')
+                for i in invest_amounts:
+                    print('Your payment for '+i[0]+' this month in USD is: $'+str(round(i[1],2)))
     income +=0.01
     print('///////////////////////////////////////////////////////////////////////////////////////////////////////////\n')
 
